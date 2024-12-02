@@ -21,7 +21,7 @@ class ProjectController extends Controller
             return response()->json(["message" => "You do not exist"]);
         }
 
-        $projects = Project::where("user_id", "=", $user->id);
+        $projects = Project::where("user_id", "=", $user->id)->with(['members'])->get();
 
         return response()->json($projects);
     }
