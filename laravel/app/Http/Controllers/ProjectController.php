@@ -28,8 +28,8 @@ class ProjectController extends Controller
 
     public function addProject(Request $request){
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
+            "name" => "required|string|max:255",
+            "description" => "required|string",
         ]);
 
         $project = Project::create($validated);
@@ -39,8 +39,8 @@ class ProjectController extends Controller
 
     public function updateProject(Request $request, $id){ 
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
+            "name" => "required|string|max:255",
+            "description" => "required|string",
         ]);
 
         $project = Project::find($id);
