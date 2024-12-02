@@ -46,9 +46,4 @@ class User extends Authenticatable
         ];
     }
 
-
-    public function projects()
-    {
-        return $this->belongsToMany(Project::class, "members", "user_id", "project_id");
-    }
 }
