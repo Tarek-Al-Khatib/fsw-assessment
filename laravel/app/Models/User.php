@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class, "members", "user_id", "project_id");
+    }
 }
