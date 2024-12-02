@@ -2,7 +2,7 @@
 
 ### Laravel
 
-1. Create migrations for a database having two tables: users and projects (A user can have many projects and a project can have many members)
+1. Create migrations for a database having two tables: users and projects (A user can have many projects and a project can have many members) Done
 2. Create all CRUD opertations for users and projects
 3. The users table should have a "requests_num" column, tracking the number of APIs called by each user. Implement a middleware that updates this column on each request. (You can use the user_id since JWT implementation is not required)
 
