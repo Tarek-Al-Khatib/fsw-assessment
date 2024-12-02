@@ -10,11 +10,9 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::post("/login", [UserController::class, "login"]);
+Route::post("/register", [UserController::class, "register"]);
 Route::middleware([UpdateRequestsNum::class])->group(function () {
-    Route::post("/login", [UserController::class, "login"]);
-    Route::post("/register", [UserController::class, "register"]);
-
     Route::prefix("projects")->group(function () {
         Route::get("/", [ProjectController::class, "getProjects"]);
         Route::get("/user/{id}", [ProjectController::class, "getProjectOfUser"]);  

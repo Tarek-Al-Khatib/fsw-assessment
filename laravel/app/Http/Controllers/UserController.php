@@ -10,18 +10,18 @@ class UserController extends Controller
 {
     public function login(Request $request){
         $credentials = $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
+            "email" => "required|string|email",
+            "password" => "required|string",
         ]);
-        $user = User::where('email', $credentials['email'])->first();
+        $user = User::where("email", $credentials["email"])->first();
 
-        if (!$user || !Hash::check($credentials['password'], $user->password)) {
-            return response()->json(['message' => 'Invalid credentials'], 401);
+        if (!$user || !Hash::check($credentials["password"], $user->password)) {
+            return response()->json(["message" => "Invalid credentials"], 400);
         }
 
         return response()->json([
-            'message' => 'Login successful',
-            'user' => $user,
+            "message" => "Login successful",
+            "user" => $user,
         ]);
     }
 
