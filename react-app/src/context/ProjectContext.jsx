@@ -33,4 +33,24 @@ const ProjectProvider = ({ children }) => {
     );
     return response.data;
   }
+
+  useEffect(() => {
+    fetchProjects();
+    fetchPersonalProjects();
+  }, []);
+
+  return (
+    <projectContext.Provider
+      value={{
+        projects,
+        personalProjects,
+        fetchProjects,
+        fetchPersonalProjects,
+        addProject,
+        updateProject,
+      }}
+    >
+      {children}
+    </projectContext.Provider>
+  );
 };
