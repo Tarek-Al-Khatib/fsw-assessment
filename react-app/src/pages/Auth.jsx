@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../css/auth.css";
+import { projectContext } from "../context/ProjectContext";
 
 const Auth = () => {
+  const { setUserId } = useContext(projectContext);
   const [signup, setSignup] = useState(false);
   const navigate = useNavigate();
 
@@ -83,6 +85,8 @@ const Auth = () => {
         password: loginState.password,
       });
       const user = response.data;
+
+      setUserId(user.id);
       localStorage.setItem("user", JSON.stringify(user));
 
       navigate("/projects");
