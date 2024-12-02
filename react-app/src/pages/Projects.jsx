@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Project from "../components/Project";
-
+import { projectContext } from "../context/ProjectContext";
 const Projects = () => {
+  const utilities = useContext(projectContext);
+
   return (
     <div className="projects-container">
-      {projects.map((p) => (
+      {utilities.projects.map((p) => (
         <Project project={p} key={p.id} />
       ))}
     </div>
